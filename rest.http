@@ -1,0 +1,15 @@
+GET http://localhost:5000/
+
+### patient data store
+
+POST http://localhost:5000/
+
+### Get a patient by id
+GET http://localhost:5000/patients?contact=1933829785
+
+### Get a patient by id
+PATCH  http://localhost:5000/id
+
+
+### Get a patient by id
+DELETE  http://localhost:5000/id
