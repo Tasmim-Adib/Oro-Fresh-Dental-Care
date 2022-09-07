@@ -1,0 +1,315 @@
+
+.form_content{
+    display: flex;
+    
+}
+.patient_info{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 60%;
+    margin: 30px;
+}
+.medical_history{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 40%;
+    margin: 30px;
+    padding-bottom: 20px;
+}
+.problem{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 50%;
+    margin: 30px;
+    padding-bottom: 20px;
+}
+.treatment{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 50%;
+    margin: 30px;
+    padding-bottom: 20px;
+}
+.complain{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 95%;
+    margin: 30px;
+    padding-bottom: 20px;
+}
+.payment{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 50%;
+    margin: 30px;
+    padding-bottom: 20px;
+}
+.patient_p{
+    background-color: #63a5e7;
+    color: white;
+    padding-left: 30px;
+    padding-top: 10px;
+    margin-top: 0px;
+    padding-bottom: 10px;
+}
+
+.name_age{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+
+
+input[type = text],[type = number]{
+    padding: 10px;
+    
+}
+
+input[type = date]{
+    padding: 10px;
+    width: 250px;
+}
+
+
+
+
+input[name = reference]{
+    width: 200px;
+}
+select{
+    padding: 8px;
+    width: 120px;
+    font-family: 'Oswald', sans-serif;
+}
+.sex_age_ref{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.area{
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+input[name = area]{
+    padding: 10px;
+    width: 500px;
+}
+
+.medical_history_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.form_treatment{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-left: 30px;   
+}
+
+.upper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.upper_left{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 37%;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.upper_left p{
+    text-align: center;
+    background-color: rgb(80, 188, 224);
+    color: white;
+    margin-top: 0px;
+}
+
+.past_case{
+    margin-left: 20px;
+}
+.painON_align{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.painOn{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+    padding-bottom: 30px;
+    width: 40%;
+}
+
+
+.painOn p{
+    text-align: center;
+    background-color: rgb(28, 57, 119);
+    color: white;
+    margin-top: 0px;
+}
+
+.painOn img{
+    width: 30px;
+    height: 30px;
+}
+.painON_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.painON_checkbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.BDR_BDC{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.BDR_content{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+    padding-bottom: 30px;
+    width: 40%;
+}
+.BDR_content p{
+    text-align: center;
+    background-color: rgb(28, 57, 119);
+    color: white;
+    margin-top: 0px;
+}
+.afterBDR{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.btn_align{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width : 768px){
+    input[type = text],[type = number]{
+        width: 180px;
+    }
+    input[type = date]{
+        width : 180px
+    }
+    input[name = age]{
+        width: 80px; 
+    }
+    
+    input[name = reference]{
+        width: 150px;
+    }
+    select{
+        width: 100px;
+    }
+    input[name = area]{ 
+        width: 300px;
+    }
+    .painOn{
+        width: 55%;
+    }
+    .upper_left{
+        width: 40%;
+    }
+    .payment{
+        width : 60%
+    }
+}
+
+@media screen and (max-width : 425px){
+    .form_content{
+        display: flex;
+        flex-direction: column;       
+    }
+
+    .patient_info{
+        width: 100%;
+        margin: 20px 0px;
+    }
+    .medical_history{
+        width: 100%;
+        margin: 20px 0px;
+        padding-bottom: 20px;
+    }
+    .problem{
+        width: 100%;
+        margin: 20px 0px;
+        padding-bottom: 20px;
+    }
+    .treatment{
+        width: 100%;
+        margin: 20px 0px;
+        padding-bottom: 20px;
+    }
+    .upper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .upper_left{
+        width: 100%;
+    }
+    .painOn{
+        width: 100%;
+    }
+    .BDR_BDC{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .BDR_content{
+        width: 100%;
+    }
+    .complain{
+        width: 100%;
+        margin: 30px 0;
+    }
+    .payment{
+        width: 100%;
+        margin: 0;
+    }
+ 
+}
+@media screen and (max-width : 320px){
+
+    
+    .name_age{
+        flex-direction: column;
+    }
+    .sex_age_ref{
+        flex-direction: column;
+    }
+    input[name = area]{  
+        width: 250px;
+    }
+    input[name = age]{
+        width: 180px; 
+    }
+    
+    input[name = reference]{
+        width: 180px;
+    }
+    select{
+        width: 180px;
+    }
+}

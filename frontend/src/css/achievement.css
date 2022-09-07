@@ -1,0 +1,47 @@
+.achievement{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+
+}
+
+.achievement-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    
+}
+
+.digit{
+    font-size: 2.5rem;
+}
+
+.text{
+    font-size: 2rem;
+    font-style: bold;
+}
+
+@media screen and (max-width : 768px) {
+    .digit{
+        font-size: 2rem;
+    }
+    
+    .text{
+        font-size: 1.8rem;
+        font-style: bold;
+    }
+}
+
+@media screen and (max-width : 325px) {
+    .achievement{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .achievement-content{
+        margin-top: 40px;
+    }
+}

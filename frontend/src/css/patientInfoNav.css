@@ -1,0 +1,68 @@
+.patientInfoNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+}
+.patient_nav_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    width: 45%;
+}
+#patientInfo_btn{
+    background-color: #63a5e7;
+    border: none;
+    margin-bottom: -1px;
+}
+#patientInfo_btn:hover{
+    background-color: white;
+    border: 1px solid black;
+}
+.search-container{
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+}
+#patientInfo_contact{
+    width: 100%;
+    margin-top: 20px;
+    display: block;
+    border-radius: 30px;
+    padding-left: 20px;
+    outline: none;
+    border: 1px solid #63a5e7;
+}
+#search_image{
+    height: 18px;
+    width: 18px;
+}
+.patientInfo_submit_btn{
+    position: absolute;
+    left: 75%;
+    top:2%; 
+    background-color:#63a5e7;
+    padding-top: 1px;
+    border-radius: 30px;
+}
+.patientInfo_submit_btn:hover{
+    background-color: #1ca4b6;
+}
+
+.design_input_Data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.design_cost_Data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

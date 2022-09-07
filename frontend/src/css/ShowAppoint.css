@@ -1,0 +1,19 @@
+.btn_align{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin:40px 0px;
+}
+table{
+    width: 100%;
+    padding: 20px;
+}
+input[name = "viewDate"]{
+    margin-top: 20px;
+    margin-right: 3px;
+}
+th, td{
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}

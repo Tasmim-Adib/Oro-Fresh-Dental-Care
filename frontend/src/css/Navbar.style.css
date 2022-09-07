@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+
+}
+
+
+body{
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+/*navbar starts here*/
+
+.nav_logo{
+    display: flex;
+    flex-direction: row;
+}
+.nav_logo img{
+    width: 80px;
+    height: 80px;
+    margin-right: 40px;
+}
+
+h1{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+p{
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.dotted-hr{
+    border: dotted 6px white;
+    border-bottom: none;
+    margin: 20px auto;
+    width: 70px;
+}
+.nav_bar{
+    background-color: #2c3e50;
+    padding: 1% 7%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    
+}
+.nav_bar::after{
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.nav_bar h1{
+    color: white;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.nav_link{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    margin-top: 5px;  
+}
+
+.nav_link a{
+    margin: 15px 0;
+    padding: 10px;
+}
+
+.nav_link a:hover{
+    color: tomato;
+}
+
+button{
+    background-color: #2c3e50;
+    border: white 1px solid;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+}
+button:hover{
+    background-color: white;
+    color: #2c3e50;
+    border: 1px solid #2c3e50;
+
+}
+@media screen and (max-width : 768px) {
+    .nav_bar{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        padding: 3% 0%;
+    }
+    .nav_link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 8px;
+    }   
+    h1{
+        font-size: 2rem;
+    }
+    .nav_logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav_logo img{
+        margin: 0px;
+    }
+
+}
+@media screen and (max-width : 950px) {
+    .nav_bar{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .nav_link{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 8px;
+    }   
+
+}
+@media screen and (max-width : 360px){
+    .nav_bar{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .nav_link{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }  
+    h1{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}

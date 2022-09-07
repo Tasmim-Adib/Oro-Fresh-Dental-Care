@@ -1,0 +1,40 @@
+
+.boxed{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+fieldset{
+    width: 70%;
+    border: 1px solid #1ca4b6;
+    margin-left: -80px;
+}
+
+legend{
+    color: #0f7886;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.blood_pressure{
+    display: flex;
+
+}
+input{
+    margin: 10px;
+}
+
+input[type = "text"]{
+    width: 650px;
+    padding: 10px;
+}
+input[name = "age"],[name = "contact"],[name = "height"],[name="weight"],[name="pulse"],[name="temperature"]
+,[name ="oxygen"]{
+    width: 650px;
+    padding: 10px;
+}
+label{
+    margin-top: 10px;
+    margin-left: 30px;
+}
