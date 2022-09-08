@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const PatientSchema = new Schema({
+const PatientSchema = new Schema({            
     name : {
         type : String,
         required:true
@@ -11,13 +11,23 @@ const PatientSchema = new Schema({
         required : true
     },
     age : Number,
-    sex : String,
-    reference : String,
-    area :String,
-    totalCost : Number,
+    height : Number,
+	weight : Number,
+	systol : Number,
+	diastol : Number,
+	glucose : Number,
+	pulse : Number,
+	temperature : Number,
+	oxygen : Number,
+    total : Number,
     due : Number,
     nextVisit : Date,
-    appointment : Date,
+    dateOfAppointment : Date,
+    problemStatement : String,
+    symptom : String,
+    diagnosis : String,
+    advice : String,
+    comment : String,
     medicalHistory : Object,
     treatment : Object,
     problem : Object,
@@ -40,7 +50,8 @@ const PatientSchema = new Schema({
     BDR : Object,
     BDC : Object,
     AfterBDR : Object,
-    pic : String
+    pic : String,
+    preview : String
 })
 
 const Patient = mongoose.model('patient', PatientSchema);

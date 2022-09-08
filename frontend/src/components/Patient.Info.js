@@ -46,7 +46,8 @@ export default function PatientInfo(props) {
 							<label>Diastol : </label> <input type = "number" name = "diastol" value = {values.diastol} onChange={handleInputChange}/><br/>
 						</div>
 					</div>
-					
+					<label>Glucose : </label> <input type = "number" name = "glucose" value = {values.glucose} onChange={handleInputChange}/><br/>
+
 					<label>Pulse : </label> <input type = "number" name = "pulse" value = {values.pulse} onChange={handleInputChange}/><br/>
 					<label>Temperature (celcius) : </label> <input type = "number" name = "temperature" value = {values.temperature} onChange={handleInputChange}/><br/>
 					<label>Oxygen Saturation : </label> <input type = "number" name = "oxygen" value = {values.oxygen} onChange={handleInputChange}/>

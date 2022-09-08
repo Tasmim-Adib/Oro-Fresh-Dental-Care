@@ -1,7 +1,7 @@
 import React from 'react'
 // design_input_data.css is in PatientInfoNav.js
 
-export default function AllData({name,age,contact,height,weight,systol,diastol,pulse,temperature,oxygen}) {
+export default function AllData({name,age,contact,height,weight,systol,diastol,glucose,pulse,temperature,oxygen}) {
 
   return (
     <div className='boxed'>
@@ -15,6 +15,7 @@ export default function AllData({name,age,contact,height,weight,systol,diastol,p
         <div className='design_input_Data'>
           <h3>Height : {height}</h3>
           <h3>Weight : {weight}</h3>
+          <h3>Glucose : {glucose}</h3>
         </div>
         
         <div className='design_input_Data'>

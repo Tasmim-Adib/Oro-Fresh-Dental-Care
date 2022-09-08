@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function DiagnosisData({problemStatement,symptom,diagnosis,advice,comment,isDiagnosis,medicalHistory,treatment,problem ,pastCaseOption,radiologicalHistory,painOn,upper_left,upper_right,lower_left,lower_right,BDR,BDC,AfterBDR}) {
+export default function DiagnosisData({problemStatement,symptom,diagnosis,advice,comment,medicalHistory,treatment,problem ,pastCaseOption,radiologicalHistory,painOn,upper_left,upper_right,lower_left,lower_right,BDR,BDC,AfterBDR}) {
   return (
     <div className='boxed'>
         <fieldset>
@@ -28,6 +28,30 @@ export default function DiagnosisData({problemStatement,symptom,diagnosis,advice
                             {medicalHistory && Object.keys(medicalHistory).map((hist ,index) =>{                               
                                 return(
                                     <td key={index}>{medicalHistory[hist] ?<img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                )
+                            })}
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div className = "container">
+                <h2>Problem</h2>
+                <hr className="dotted-hr"/>
+                <table className = "table_content">
+                    <thead>
+                        <tr>
+                            <th>Foul Odor</th>
+                            <th>Gum Bleeding</th>
+                            <th>Calculass Palque, Stain, Stone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {problem && Object.keys(problem).map((hist ,index) =>{                               
+                                return(
+                                    <td key={index}>{problem[hist] ?<img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
                                 )
                             })}
                         </tr>
