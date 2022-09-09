@@ -66,3 +66,14 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@media screen and (max-width : 768px)  {
+    .patientInfoNav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .patient_nav_header{
+        width: 100%;
+    }
+}

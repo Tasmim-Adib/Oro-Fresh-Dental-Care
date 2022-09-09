@@ -25,16 +25,39 @@ input{
     margin: 10px;
 }
 
-input[type = "text"]{
-    width: 650px;
-    padding: 10px;
-}
-input[name = "age"],[name = "contact"],[name = "height"],[name="weight"],[name="pulse"],[name="temperature"]
-,[name ="oxygen"]{
+input[name = "name"],[name = "age"],[name = "contact"],[name = "height"],[name="weight"],[name="pulse"],[name="temperature"]
+,[name ="oxygen"],[name = "glucose"]{
     width: 650px;
     padding: 10px;
 }
 label{
     margin-top: 10px;
     margin-left: 30px;
+}
+
+@media screen and (max-width : 768px){
+    fieldset{
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .blood_pressure{
+        display: flex;
+        flex-direction: column;
+    }
+    input[name="age"]{
+        width: 180px;
+    }
+    input[name = "name"],[name = "age"],[name = "contact"],[name = "height"],[name="weight"],[name="pulse"],[name="temperature"]
+,[name ="oxygen"],[name = "glucose"]{
+    width: 300px;
+    padding: 10px;
+}
+}
+
+@media screen and (max-width : 425px){
+    fieldset{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }

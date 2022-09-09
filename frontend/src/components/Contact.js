@@ -33,9 +33,10 @@ export default function Contact() {
         <hr className="dotted-hr"/>
         <form onSubmit = {handleSubmit}>
             <div className="appointment">
-                <div><label>Name</label><br/> <input type = 'text' name = "name" value = {name} onChange ={(e) => setName(e.target.value)}/></div>
+    
+                <div><label>Name</label><br/> <input className='patientName' type = 'text' name = "patientName" value = {name} onChange ={(e) => setName(e.target.value)}/></div>
                 <div><label>Date Of Appointment</label><br/> <input type = 'date' name = "date" value = {date} onChange ={(e) => setDate(e.target.value)}/></div>               
-                <div><label>Contact No</label><br/><input type = 'text' name = "contact" value = {contact} onChange ={(e) => setContact(e.target.value)}/></div>
+                <div><label>Contact No</label><br/><input className='patientName' type = 'text' name = "patientContact" value = {contact} onChange ={(e) => setContact(e.target.value)}/></div>
 
             </div>
             <div className = "appoint_btn">

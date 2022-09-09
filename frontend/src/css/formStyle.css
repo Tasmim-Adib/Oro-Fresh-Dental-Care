@@ -10,7 +10,7 @@
 }
 .medical_history{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 40%;
+    width: 50%;
     margin: 30px;
     padding-bottom: 20px;
 }
@@ -22,7 +22,7 @@
 }
 .treatment{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 50%;
+    width: 90%;
     margin: 30px;
     padding-bottom: 20px;
 }
@@ -34,7 +34,7 @@
 }
 .payment{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 50%;
+    width: 60%;
     margin: 30px;
     padding-bottom: 20px;
 }
@@ -62,7 +62,7 @@ input[type = text],[type = number]{
 
 input[type = date]{
     padding: 10px;
-    width: 250px;
+    width: 180px;
 }
 
 
@@ -142,7 +142,7 @@ input[name = area]{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     text-align: center;
     padding-bottom: 30px;
-    width: 40%;
+    width: 60%;
 }
 
 
@@ -190,6 +190,9 @@ input[name = area]{
 .afterBDR{
     margin-left: 30px;
     margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn_align{
@@ -205,15 +208,13 @@ input[name = area]{
     align-items: center;
 }
 @media screen and (max-width : 768px){
-    input[type = text],[type = number]{
-        width: 180px;
+    input[type = text]{
+        width: 300px;
     }
     input[type = date]{
         width : 180px
     }
-    input[name = age]{
-        width: 80px; 
-    }
+  
     
     input[name = reference]{
         width: 150px;
@@ -288,6 +289,9 @@ input[name = area]{
         width: 100%;
         margin: 0;
     }
+    input[type = "date"]{
+        width: 153px;
+    }
  
 }
 @media screen and (max-width : 320px){
@@ -312,4 +316,8 @@ input[name = area]{
     select{
         width: 180px;
     }
+    input[type = text],[type = number]{
+        width: 180px;
+    }
+    
 }

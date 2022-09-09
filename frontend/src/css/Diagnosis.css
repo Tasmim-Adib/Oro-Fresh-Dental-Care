@@ -1,0 +1,18 @@
+input[name = "problemStatement"],[name = "symptom"],[name = "advice"],
+[name = "comment"],[name = "diagnosis"]{
+    width: 650px;
+}
+
+input[name = "total"],[name = "due"]{
+    width: 180px;
+}
+
+@media screen and (max-width : 375px) {
+    fieldset{
+        margin-left: 0px;
+    }
+    input[name = "total"],[name = "due"]{
+        width: 150px;
+    }
+    
+}

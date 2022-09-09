@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../css/Diagnosis.css'
 
 export default class demoDiagnosis extends Component {
 
@@ -231,22 +232,24 @@ export default class demoDiagnosis extends Component {
 				<label>Diagnosis : </label> <input type = "text" name = "diagnosis" value = {this.state.diagnosis} onChange={this.handleFieldChange}/><br/>
 				<label>Advice : </label> <input type = "text" name = "advice" value = {this.state.advice} onChange={this.handleFieldChange}/><br/>
 				<label>Comment : </label> <input type = "text" name = "comment" value = {this.state.comment} onChange={this.handleFieldChange}/><br/>
-				<div className="medical_history">
-					<p className="patient_p">Medical History</p>
-					<div className="medical_history_content">
-						<div><label>Diabetics: </label><input  name="medicalHistory" type="checkbox" value ="isDiabetics" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isDiabetics} /></div>
-						<div><label>Heart Diseases: </label><input  name="medicalHistory" type="checkbox" value ="isHeartDiseases"  onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isHeartDiseases}/></div>
-						<div><label>Kidney Diseases: </label><input  name="medicalHistory"  type="checkbox" value ="isKidneyDiseases"  onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isKidneyDiseases}/></div>
-						<div><label>Hepatities: </label><input  name="medicalHistory"  type="checkbox" value ="isHepatities" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isHepatities}/></div>
-						<div><label>Drug Reaction: </label><input  name="medicalHistory"  type="checkbox" value ="isDrugReaction" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isDrugReaction}/></div>
-					</div>
-            	</div>
-                <div className = "problem">
-                    <p className="patient_p">Problem</p>
-                    <div className = "medical_history_content">
-                        <div><label>Calculass Palque, Stain, Stone : </label><input  name="problem" value = "calculass" type="checkbox" checked={this.state.calculass} onChange={this.handleMedicalProblemChange} /></div>
-                        <div><label>Gum Bleeding: </label><input  name="problem" value = "gumBleeding" type="checkbox" checked={this.state.gumBleeding} onChange={this.handleMedicalProblemChange} /></div>
-                        <div><label>Foul Odor: </label><input  name="problem" value = "odor" type="checkbox" checked={this.state.odor} onChange={this.handleMedicalProblemChange} /></div>
+				<div className='form_content'>
+                    <div className="medical_history">
+                        <p className="patient_p">Medical History</p>
+                        <div className="medical_history_content">
+                            <div><label>Diabetics: </label><input  name="medicalHistory" type="checkbox" value ="isDiabetics" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isDiabetics} /></div>
+                            <div><label>Heart Diseases: </label><input  name="medicalHistory" type="checkbox" value ="isHeartDiseases"  onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isHeartDiseases}/></div>
+                            <div><label>Kidney Diseases: </label><input  name="medicalHistory"  type="checkbox" value ="isKidneyDiseases"  onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isKidneyDiseases}/></div>
+                            <div><label>Hepatities: </label><input  name="medicalHistory"  type="checkbox" value ="isHepatities" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isHepatities}/></div>
+                            <div><label>Drug Reaction: </label><input  name="medicalHistory"  type="checkbox" value ="isDrugReaction" onChange={this.handleMedicalCheckBoxChange} checked={this.state.medicalHistory.isDrugReaction}/></div>
+                        </div>
+                    </div>
+                    <div className = "problem">
+                        <p className="patient_p">Problem</p>
+                        <div className = "medical_history_content">
+                            <div><label>Calculass Palque, Stain, Stone : </label><input  name="problem" value = "calculass" type="checkbox" checked={this.state.calculass} onChange={this.handleMedicalProblemChange} /></div>
+                            <div><label>Gum Bleeding: </label><input  name="problem" value = "gumBleeding" type="checkbox" checked={this.state.gumBleeding} onChange={this.handleMedicalProblemChange} /></div>
+                            <div><label>Foul Odor: </label><input  name="problem" value = "odor" type="checkbox" checked={this.state.odor} onChange={this.handleMedicalProblemChange} /></div>
+                        </div>
                     </div>
                 </div>
                 <div className="treatment">
@@ -279,66 +282,68 @@ export default class demoDiagnosis extends Component {
                     </div>
                 </div>
 
-                <div className = "painOn">
-                    <p>Pain On</p>
-                    <div className = "painON_content">
-                        <div className = "painON_checkbox">
-                            <div>1</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="one" checked = {this.state.painOn.one}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>2</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="two" checked = {this.state.painOn.two}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>3</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="three" checked = {this.state.painOn.three}/></div>
-                        </div>
+                <div className='painON_align'>
+                    <div className = "painOn">
+                        <p>Pain On</p>
+                        <div className = "painON_content">
+                            <div className = "painON_checkbox">
+                                <div>1</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="one" checked = {this.state.painOn.one}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>2</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="two" checked = {this.state.painOn.two}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>3</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="three" checked = {this.state.painOn.three}/></div>
+                            </div>
 
-                        <div className = "painON_checkbox">
-                            <div>4</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="four" checked = {this.state.painOn.four}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>5</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="five" checked = {this.state.painOn.five}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>6</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="six" checked = {this.state.painOn.six}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>7</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="seven" checked = {this.state.painOn.seven}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>8</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="eight" checked = {this.state.painOn.eight}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>9</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="nine" checked = {this.state.painOn.nine}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>10</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="ten" checked = {this.state.painOn.ten}/></div>
-                        </div>
-                        <div className = "painON_checkbox">
-                            <div>11</div>
-                            <div><img src="images/singT.jpg" alt="Tooth"/></div>
-                            <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="eleven" checked = {this.state.painOn.eleven}/></div>
-                        </div>
-                    </div>                        
+                            <div className = "painON_checkbox">
+                                <div>4</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="four" checked = {this.state.painOn.four}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>5</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="five" checked = {this.state.painOn.five}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>6</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="six" checked = {this.state.painOn.six}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>7</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="seven" checked = {this.state.painOn.seven}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>8</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="eight" checked = {this.state.painOn.eight}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>9</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="nine" checked = {this.state.painOn.nine}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>10</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="ten" checked = {this.state.painOn.ten}/></div>
+                            </div>
+                            <div className = "painON_checkbox">
+                                <div>11</div>
+                                <div><img src="images/singT.jpg" alt="Tooth"/></div>
+                                <div><input onChange = {this.handlePain} type ="checkbox" name ="pain" value ="eleven" checked = {this.state.painOn.eleven}/></div>
+                            </div>
+                        </div>                        
+                    </div>
                 </div>
 
                 <div className = "upper">
