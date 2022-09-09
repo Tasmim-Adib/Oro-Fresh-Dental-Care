@@ -254,151 +254,161 @@ export default function PatientInfoNav() {
         doc.setFont('helvetica', 'bold');
         
         doc.text('Oro Fresh Dental Care', 200,30).setFontSize(13).setFont('helvetica', 'bold');
-        doc.text('Your Perfect Smile Partner', 218,48).setFontSize(13).setFont('helvetica', 'normal');
+        doc.text('Your Perfect Smile Partner', 212,48).setFontSize(13).setFont('helvetica', 'normal');
         doc.text('68, Mohakhali Community Center Market, Shop - 5 & 16', 140,66);
         doc.text("Gulshan, Dhaka - 1212 || Cell : 01715 243393", 165,84);
 
+        doc.setFont('helvetica', 'italic');
+        doc.text(50, 118,`Name : ${infoData.name}`);
+        doc.text(50, 136, `Age : ${infoData.age}`);
+        doc.text(370, 136, `Contact : ${infoData.contact}`);
+        doc.text(50, 154, `Height : ${infoData.height} cm`);
+        doc.text(370, 154, `Weight : ${infoData.weight} kg`);
+        doc.text(50, 172, `Blood Pressure : Systol ${infoData.systol}`);
+        doc.text(370, 172, `Diastol : ${infoData.diastol}`);
+        doc.text(50, 190, `Pulse : ${infoData.pulse}`);
+        doc.text(370, 190, `Glucose : ${infoData.glucose}`);
+        doc.text(50, 208, `Temperature : ${infoData.temperature} C`);
+        doc.text(370, 208, `Oxygen Saturation : ${infoData.oxygen}`);
+
+
         doc.setFont('helvetica', 'bold');
-        doc.text(50, 118,`Name : ${this.state.name}`);
-        doc.text(50, 136, `Age : ${this.state.age}`);
-        doc.text(200, 136, `Sex : ${this.state.sex}`);
-        doc.text(370, 136, `Contact : ${this.state.contact}`);
-        doc.text(50, 154, `Reference : ${this.state.reference}`);
-        doc.text(50, 172, `Area : ${this.state.area}`);
-
-
-        doc.text('Medical History', 235, 203).setFontSize(13).setFont('helvetica','bold');
+        doc.text('Medical History', 235, 240).setFontSize(13).setFont('helvetica','bold');
         jsTable(doc, {
-            startY : 218,
+            startY : 250,
             head : [['Diabetics', 'Heart Diseases', 'Hepatities', 'Kidney Diseases', 'Drug Reaction']],
-            body : [[`${this.state.medicalHistory.isDiabetics ? "Yes" : "-"}`, ` ${this.state.medicalHistory.isHeartDiseases ? "Yes" : "-"}`, `${this.state.medicalHistory.isHepatities ? "Yes" : "-"}`,
-            `${this.state.medicalHistory.isKidneyDiseases ? "Yes" : "-"}`, `${this.state.medicalHistory.isDrugReaction ? "Yes" : "-"}`]]
+            body : [[`${diagnosisData.medicalHistory.isDiabetics ? "Yes" : "-"}`, ` ${diagnosisData.medicalHistory.isHeartDiseases ? "Yes" : "-"}`, `${diagnosisData.medicalHistory.isHepatities ? "Yes" : "-"}`,
+            `${diagnosisData.medicalHistory.isKidneyDiseases ? "Yes" : "-"}`, `${diagnosisData.medicalHistory.isDrugReaction ? "Yes" : "-"}`]]
         })
         
         
-        doc.text('Problem', 255, 298);
+        doc.text('Problem', 255, 330);
         jsTable(doc, {
-            startY : 313,
+            startY : 340,
             head : [['Calculass, Plaque, Stain, Stone','Gum Bleeding','Foul Odor']],
-            body : [[`${this.state.problem.calculass ? "Yes" : "-"}`, `${this.state.problem.gumBleeding ? "Yes" : "-"}`, `${this.state.problem.odor ? "Yes" : "-"}`]]
+            body : [[`${diagnosisData.problem.calculass ? "Yes" : "-"}`, `${diagnosisData.problem.gumBleeding ? "Yes" : "-"}`, `${diagnosisData.problem.odor ? "Yes" : "-"}`]]
         })
 
 
-        doc.text('Treatment', 255, 393);
+        doc.text('Treatment', 255, 420);
         jsTable(doc, {
-            startY : 408,
+            startY : 430,
             head : [['Resoration', 'Conservetives', 'Endodontics', 'Prosthodontics', 'Orthodontics']],
-            body : [[`${this.state.treatment.resoration ? "Yes" : "-"}`, `${this.state.treatment.conservetives ? "Yes" : "-"}`, `${this.state.treatment.indodontics ? "Yes" : "-"}`,
-                `${this.state.treatment.prosthodontics ? "Yes" : "-"}`, `${this.state.treatment.orthodontics ? "Yes" : "-"}`]]
+            body : [[`${diagnosisData.treatment.resoration ? "Yes" : "-"}`, `${diagnosisData.treatment.conservetives ? "Yes" : "-"}`, `${diagnosisData.treatment.indodontics ? "Yes" : "-"}`,
+                `${diagnosisData.treatment.prosthodontics ? "Yes" : "-"}`, `${diagnosisData.treatment.orthodontics ? "Yes" : "-"}`]]
         })
 
         jsTable(doc, {
             head : [['Surgery', 'Periodontics', 'Prevention', 'Medication','Asthetics']],
-            body : [[`${this.state.treatment.surgery ? "Yes" : "-"}`, `${this.state.treatment.periodontics ? "Yes" : "-"}`, `${this.state.treatment.prevention ? "Yes" : "-"}`,
-             `${this.state.treatment.medication ? "Yes" : "-"}`, `${this.state.treatment.asthetics ? "Yes" : "-"}`]]
+            body : [[`${diagnosisData.treatment.surgery ? "Yes" : "-"}`, `${diagnosisData.treatment.periodontics ? "Yes" : "-"}`, `${diagnosisData.treatment.prevention ? "Yes" : "-"}`,
+             `${diagnosisData.treatment.medication ? "Yes" : "-"}`, `${diagnosisData.treatment.asthetics ? "Yes" : "-"}`]]
         })
     
+        doc.setFont('helvetica', 'italic');
 
-        doc.text(70, 548, `Past Case History : ${this.state.pastCaseOption}`);
-        doc.text(350, 548, `Radiological History : ${this.state.radiologicalHistory}`);
+        doc.text(70, 580, `Past Case History : ${diagnosisData.pastCaseOption}`);
+        doc.text(350, 580, `Radiological History : ${diagnosisData.radiologicalHistory}`);
+
         
-        
-        doc.text('Pain On', 255, 588);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Pain On', 255, 630);
         jsTable(doc, {
-            startY : 603,
+            startY : 640,
             head : [['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight','Nine', 'Ten','Eleven']],
-            body : [[`${this.state.painOn.one ? "Yes" : "-"}`, `${this.state.painOn.two ? "Yes" : "-"}`, `${this.state.painOn.three ? "Yes" : "-"}`, `${this.state.painOn.four ? "Yes" : "-"}`, `${this.state.painOn.five ? "Yes" : "-"}`,
-            `${this.state.painOn.six ? "Yes" : "-"}`, `${this.state.painOn.seven ? "Yes" : "-"}`, `${this.state.painOn.eight ? "Yes" : "-"}`, `${this.state.painOn.nine ? "Yes" : "-" }`, `${this.state.painOn.ten ? "Yes" : "-"}`, `${this.state.painOn.eleven ? "Yes" : "-"}`]]
+            body : [[`${diagnosisData.painOn.one ? "Yes" : "-"}`, `${diagnosisData.painOn.two ? "Yes" : "-"}`, `${diagnosisData.painOn.three ? "Yes" : "-"}`, `${diagnosisData.painOn.four ? "Yes" : "-"}`, `${diagnosisData.painOn.five ? "Yes" : "-"}`,
+            `${diagnosisData.painOn.six ? "Yes" : "-"}`, `${diagnosisData.painOn.seven ? "Yes" : "-"}`, `${diagnosisData.painOn.eight ? "Yes" : "-"}`, `${diagnosisData.painOn.nine ? "Yes" : "-" }`, `${diagnosisData.painOn.ten ? "Yes" : "-"}`, `${diagnosisData.painOn.eleven ? "Yes" : "-"}`]]
 
         })
+
+        doc.addPage();
         
         jsTable(doc, {
-            startY : 663,
             head : [['Position', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight']],
             body : [
-                ['Upper Left', `${this.state.upper_left.one ? "Yes" : "-"}`, `${this.state.upper_left.two ? "Yes" : "-"}`, `${this.state.upper_left.three ? "Yes" : "-"}`,
-                `${this.state.upper_left.four ? "Yes" : "-"}`, `${this.state.upper_left.five ? "Yes" : "-"}`, `${this.state.upper_left.six ? "Yes" : "-"}`, `${this.state.upper_left.seven ? "Yes" : "-"}`,
-                `${this.state.upper_left.eight ? "Yes" : "-"}` ],
+                ['Upper Left', `${diagnosisData.upper_left.one ? "Yes" : "-"}`, `${diagnosisData.upper_left.two ? "Yes" : "-"}`, `${diagnosisData.upper_left.three ? "Yes" : "-"}`,
+                `${diagnosisData.upper_left.four ? "Yes" : "-"}`, `${diagnosisData.upper_left.five ? "Yes" : "-"}`, `${diagnosisData.upper_left.six ? "Yes" : "-"}`, `${diagnosisData.upper_left.seven ? "Yes" : "-"}`,
+                `${diagnosisData.upper_left.eight ? "Yes" : "-"}` ],
 
 
-                ['Upper Right', `${this.state.upper_right.one ? "Yes" : "-"}`, `${this.state.upper_right.two ? "Yes" : "-"}`, `${this.state.upper_right.three ? "Yes" : "-"}`,
-                `${this.state.upper_right.four ? "Yes" : "-"}`, `${this.state.upper_right.five ? "Yes" : "-"}`, `${this.state.upper_right.six ? "Yes" : "-"}`, `${this.state.upper_right.seven ? "Yes" : "-"}`,
-                `${this.state.upper_right.eight ? "Yes" : "-"}` ],
+                ['Upper Right', `${diagnosisData.upper_right.one ? "Yes" : "-"}`, `${diagnosisData.upper_right.two ? "Yes" : "-"}`, `${diagnosisData.upper_right.three ? "Yes" : "-"}`,
+                `${diagnosisData.upper_right.four ? "Yes" : "-"}`, `${diagnosisData.upper_right.five ? "Yes" : "-"}`, `${diagnosisData.upper_right.six ? "Yes" : "-"}`, `${diagnosisData.upper_right.seven ? "Yes" : "-"}`,
+                `${diagnosisData.upper_right.eight ? "Yes" : "-"}` ],
 
-                ['Lower Left', `${this.state.lower_left.one ? "Yes" : "-"}`, `${this.state.lower_left.two ? "Yes" : "-"}`, `${this.state.lower_left.three ? "Yes" : "-"}`,
-                `${this.state.lower_left.four ? "Yes" : "-"}`, `${this.state.lower_left.five ? "Yes" : "-"}`, `${this.state.lower_left.six ? "Yes" : "-"}`, `${this.state.lower_left.seven ? "Yes" : "-"}`,
-                `${this.state.lower_left.eight ? "Yes" : "-"}` ],
+                ['Lower Left', `${diagnosisData.lower_left.one ? "Yes" : "-"}`, `${diagnosisData.lower_left.two ? "Yes" : "-"}`, `${diagnosisData.lower_left.three ? "Yes" : "-"}`,
+                `${diagnosisData.lower_left.four ? "Yes" : "-"}`, `${diagnosisData.lower_left.five ? "Yes" : "-"}`, `${diagnosisData.lower_left.six ? "Yes" : "-"}`, `${diagnosisData.lower_left.seven ? "Yes" : "-"}`,
+                `${diagnosisData.lower_left.eight ? "Yes" : "-"}` ],
 
-                ['Lower Right', `${this.state.lower_right.one ? "Yes" : "-"}`, `${this.state.lower_right.two ? "Yes" : "-"}`, `${this.state.lower_right.three ? "Yes" : "-"}`,
-                `${this.state.lower_right.four ? "Yes" : "-"}`, `${this.state.lower_right.five ? "Yes" : "-"}`, `${this.state.lower_right.six ? "Yes" : "-"}`, `${this.state.lower_right.seven ? "Yes" : "-"}`,
-                `${this.state.lower_right.eight ? "Yes" : "-"}` ]
+                ['Lower Right', `${diagnosisData.lower_right.one ? "Yes" : "-"}`, `${diagnosisData.lower_right.two ? "Yes" : "-"}`, `${diagnosisData.lower_right.three ? "Yes" : "-"}`,
+                `${diagnosisData.lower_right.four ? "Yes" : "-"}`, `${diagnosisData.lower_right.five ? "Yes" : "-"}`, `${diagnosisData.lower_right.six ? "Yes" : "-"}`, `${diagnosisData.lower_right.seven ? "Yes" : "-"}`,
+                `${diagnosisData.lower_right.eight ? "Yes" : "-"}` ]
             ]
         })
 
     
-        doc.addPage();
+        
 
         jsTable(doc, {
             head : [['Name', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'U', 'L', 'L', 'R']],
-            body : [['BDR', `${this.state.BDR.one ? "Yes" : "-"}`,`${this.state.BDR.two ? "Yes" : "-"}`, `${this.state.BDR.three ? "Yes" : "-"}`, `${this.state.BDR.four ? "Yes" : "-"}`,
-            `${this.state.BDR.five ? "Yes" : "-"}`, `${this.state.BDR.six ? "Yes" : "-"}`, `${this.state.BDR.seven ? "Yes" : "-"}`, `${this.state.BDR.eight ? "Yes" : "-"}`, `${this.state.BDR.nine ? "Yes" : "-"}`,
-            `${this.state.BDR.u ? "Yes" : "-"}`, `${this.state.BDR.first_L ? "Yes" : "-"}`,`${this.state.BDR.second_L ? "Yes" : "-"}`,`${this.state.BDR.r ? "Yes" : "-"}`],
+            body : [['BDR', `${diagnosisData.BDR.one ? "Yes" : "-"}`,`${diagnosisData.BDR.two ? "Yes" : "-"}`, `${diagnosisData.BDR.three ? "Yes" : "-"}`, `${diagnosisData.BDR.four ? "Yes" : "-"}`,
+            `${diagnosisData.BDR.five ? "Yes" : "-"}`, `${diagnosisData.BDR.six ? "Yes" : "-"}`, `${diagnosisData.BDR.seven ? "Yes" : "-"}`, `${diagnosisData.BDR.eight ? "Yes" : "-"}`, `${diagnosisData.BDR.nine ? "Yes" : "-"}`,
+            `${diagnosisData.BDR.u ? "Yes" : "-"}`, `${diagnosisData.BDR.first_L ? "Yes" : "-"}`,`${diagnosisData.BDR.second_L ? "Yes" : "-"}`,`${diagnosisData.BDR.r ? "Yes" : "-"}`],
             
-            ['BDC', `${this.state.BDC.one ? "Yes" : "-"}`,`${this.state.BDC.two ? "Yes" : "-"}`, `${this.state.BDC.three ? "Yes" : "-"}`, `${this.state.BDC.four ? "Yes" : "-"}`,
-            `${this.state.BDC.five ? "Yes" : "-"}`, `${this.state.BDC.six ? "Yes" : "-"}`, `${this.state.BDC.seven ? "Yes" : "-"}`, `${this.state.BDC.eight ? "Yes" : "-"}`, `${this.state.BDC.nine ? "Yes" : "-"}`,
-            `${this.state.BDC.u ? "Yes" : "-"}`, `${this.state.BDC.first_L ? "Yes" : "-"}`,`${this.state.BDC.second_L ? "Yes" : "-"}`,`${this.state.BDC.r ? "Yes" : "-"}`],
+            ['BDC', `${diagnosisData.BDC.one ? "Yes" : "-"}`,`${diagnosisData.BDC.two ? "Yes" : "-"}`, `${diagnosisData.BDC.three ? "Yes" : "-"}`, `${diagnosisData.BDC.four ? "Yes" : "-"}`,
+            `${diagnosisData.BDC.five ? "Yes" : "-"}`, `${diagnosisData.BDC.six ? "Yes" : "-"}`, `${diagnosisData.BDC.seven ? "Yes" : "-"}`, `${diagnosisData.BDC.eight ? "Yes" : "-"}`, `${diagnosisData.BDC.nine ? "Yes" : "-"}`,
+            `${diagnosisData.BDC.u ? "Yes" : "-"}`, `${diagnosisData.BDC.first_L ? "Yes" : "-"}`,`${diagnosisData.BDC.second_L ? "Yes" : "-"}`,`${diagnosisData.BDC.r ? "Yes" : "-"}`],
             
         ]
         })
 
-        doc.text("Attrition : ", 55, 170);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.AfterBDR.attrition ? "Yes" : "No"}`, 118, 170);
-        doc.setFont('helvetica', 'bold');
-        doc.text("Abration : ", 220, 170);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.AfterBDR.abration ? "Yes" : "No"}`,285, 170);
-        doc.setFont('helvetica','bold');
-        doc.text("Irrotion : ", 390, 170);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.AfterBDR.irrotion ? "Yes" : "No"}`,450, 170);
+        doc.setFont('helvetica', 'italic');
+        doc.text("Attrition : ", 55, 255);
+       
+        doc.text(`${diagnosisData.AfterBDR.attrition ? "Yes" : "No"}`, 118, 255);
+        
+        doc.text("Abration : ", 220, 255);
+        
+        doc.text(`${diagnosisData.AfterBDR.abration ? "Yes" : "No"}`,285, 255);
+        
+        doc.text("Irrotion : ", 390, 255);
+        
+        doc.text(`${diagnosisData.AfterBDR.irrotion ? "Yes" : "No"}`,450, 255);
         
         doc.setFont('helvetica','bold');
-        doc.text('Payment & Visit', 235, 230);
-        doc.setFont('helvetica','bold');
-        doc.text("Total : ",170, 255);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.total}`, 215, 255);
-        doc.text(" tk", 250, 255);
+        doc.text('Payment & Visit', 235, 300);
+        doc.setFont('helvetica','italic');
+        doc.text("Total : ",170, 325);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`${costData.total}`, 215, 325);
+        doc.text(" tk", 250, 325);
          
-        doc.setFont('helvetica','bold');
-        doc.text("Due : ", 170, 273);
-        doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.due}`, 205, 273)
-        doc.text("tk", 240, 273)
+        doc.setFont('helvetica','italic');
+        doc.text("Due : ", 170, 343);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`${costData.due}`, 205, 343)
+        doc.text("tk", 240, 343)
         
-        doc.setFont('helvetica','bold');
-        doc.text("Date of Appointment : ", 170, 291);
+        doc.setFont('helvetica','italic');
+        doc.text("Date of Appointment : ", 170, 361);
         doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.dateOfAppointment}`, 315, 291);
+        doc.text(`${costData.dateOfAppointment}`, 315, 361);
 
-        doc.setFont('helvetica','bold');
-        doc.text("Next Visit : ", 170, 309);
+        doc.setFont('helvetica','italic');
+        doc.text("Next Visit : ", 170, 379);
         doc.setFont('helvetica', 'normal');
-        doc.text(`${this.state.nextVisit}`, 250, 309);
+        doc.text(`${costData.nextVisit}`, 250, 379);
 
         doc.setFont('helvetica','bold');
         doc.setDrawColor(0, 0, 0);
-        doc.line(430,430,520,430);
+        doc.line(430,470,520,470);
 
-        doc.text("Signature", 445, 445)
+        doc.text("Signature", 445, 495)
         
         var dt = new Date();
         
         doc.setFont('helvetica','normal');
         doc.setFontSize(10);
-        doc.text("Generated : ", 120, 480);
-        doc.text(`${dt}`, 180, 480);
+        doc.text("Generated : ", 120, 530);
+        doc.text(`${dt}`, 180, 530);
         doc.save('patient.pdf');
     }
 
