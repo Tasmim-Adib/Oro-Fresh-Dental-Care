@@ -49,6 +49,7 @@ export default function PatientInfoNav() {
     const [isErr, setErr] = useState(false)
     const [isLoading, setLoading] = useState(false)
     const [costUpdateBtn, setCostUpdateBtn] = useState(false)
+    const [updatePdfBtn, setUpdatePdfBtn] = useState(false)
 
     const handleSearch = async (e) =>{
         e.preventDefault();
@@ -282,6 +283,8 @@ export default function PatientInfoNav() {
     const handleNewPatient = (e) =>{
         setInfoShow(true)
         setErr(false)
+        setUpdatePdfBtn(false)
+        setCostUpdateBtn(false)
     }
 
     const handleUpdate = (e) =>{
@@ -291,6 +294,7 @@ export default function PatientInfoNav() {
 
     const handleCostUpdate = async (e) =>{
         e.preventDefault();
+        setUpdatePdfBtn(true)
         const updateData = {
             due : values.due,
             nextVisit : values.nextVisit
@@ -308,7 +312,7 @@ export default function PatientInfoNav() {
     }
 
 
-    const   generatePdf =()=>{        
+    const generatePdf =()=>{        
         var doc = new jsPDF('p', 'pt');
         
         doc.setFontSize(18)
@@ -472,6 +476,170 @@ export default function PatientInfoNav() {
         doc.text(`${dt}`, 180, 530);
         doc.save('patient.pdf');
     }
+    const generateUpdatedPdf =()=>{        
+        var doc = new jsPDF('p', 'pt');
+        
+        doc.setFontSize(18)
+        doc.setFont('helvetica', 'bold');
+        
+        doc.text('Oro Fresh Dental Care', 200,30).setFontSize(13).setFont('helvetica', 'bold');
+        doc.text('Your Perfect Smile Partner', 212,48).setFontSize(13).setFont('helvetica', 'normal');
+        doc.text('68, Mohakhali Community Center Market, Shop - 5 & 16', 140,66);
+        doc.text("Gulshan, Dhaka - 1212 || Cell : 01715 243393", 165,84);
+
+        doc.setFont('helvetica', 'italic');
+        doc.text(50, 118,`Name : ${data.name}`);
+        doc.text(50, 136, `Age : ${data.age}`);
+        doc.text(370, 136, `Contact : ${data.contact}`);
+        doc.text(50, 154, `Height : ${data.height} cm`);
+        doc.text(370, 154, `Weight : ${data.weight} kg`);
+        doc.text(50, 172, `Blood Pressure : Systol ${data.systol}`);
+        doc.text(370, 172, `Diastol : ${data.diastol}`);
+        doc.text(50, 190, `Pulse : ${data.pulse}`);
+        doc.text(370, 190, `Glucose : ${data.glucose}`);
+        doc.text(50, 208, `Temperature : ${data.temperature} C`);
+        doc.text(370, 208, `Oxygen Saturation : ${data.oxygen}`);
+
+
+        doc.setFont('helvetica', 'bold');
+        doc.text('Medical History', 235, 240).setFontSize(13).setFont('helvetica','bold');
+        jsTable(doc, {
+            startY : 250,
+            head : [['Diabetics', 'Heart Diseases', 'Hepatities', 'Kidney Diseases', 'Drug Reaction']],
+            body : [[`${data.medicalHistory.isDiabetics ? "Yes" : "-"}`, ` ${data.medicalHistory.isHeartDiseases ? "Yes" : "-"}`, `${data.medicalHistory.isHepatities ? "Yes" : "-"}`,
+            `${data.medicalHistory.isKidneyDiseases ? "Yes" : "-"}`, `${data.medicalHistory.isDrugReaction ? "Yes" : "-"}`]]
+        })
+        
+        
+        doc.text('Problem', 255, 330);
+        jsTable(doc, {
+            startY : 340,
+            head : [['Calculass, Plaque, Stain, Stone','Gum Bleeding','Foul Odor']],
+            body : [[`${data.problem.calculass ? "Yes" : "-"}`, `${data.problem.gumBleeding ? "Yes" : "-"}`, `${data.problem.odor ? "Yes" : "-"}`]]
+        })
+
+
+        doc.text('Treatment', 255, 420);
+        jsTable(doc, {
+            startY : 430,
+            head : [['Resoration', 'Conservetives', 'Endodontics', 'Prosthodontics', 'Orthodontics']],
+            body : [[`${data.treatment.resoration ? "Yes" : "-"}`, `${data.treatment.conservetives ? "Yes" : "-"}`, `${data.treatment.indodontics ? "Yes" : "-"}`,
+                `${data.treatment.prosthodontics ? "Yes" : "-"}`, `${data.treatment.orthodontics ? "Yes" : "-"}`]]
+        })
+
+        jsTable(doc, {
+            head : [['Surgery', 'Periodontics', 'Prevention', 'Medication','Asthetics']],
+            body : [[`${data.treatment.surgery ? "Yes" : "-"}`, `${data.treatment.periodontics ? "Yes" : "-"}`, `${data.treatment.prevention ? "Yes" : "-"}`,
+             `${data.treatment.medication ? "Yes" : "-"}`, `${data.treatment.asthetics ? "Yes" : "-"}`]]
+        })
+    
+        doc.setFont('helvetica', 'italic');
+
+        doc.text(70, 580, `Past Case History : ${data.pastCaseOption}`);
+        doc.text(350, 580, `Radiological History : ${data.radiologicalHistory}`);
+
+        
+        doc.setFont('helvetica', 'bold');
+        doc.text('Pain On', 255, 630);
+        jsTable(doc, {
+            startY : 640,
+            head : [['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight','Nine', 'Ten','Eleven']],
+            body : [[`${data.painOn.one ? "Yes" : "-"}`, `${data.painOn.two ? "Yes" : "-"}`, `${data.painOn.three ? "Yes" : "-"}`, `${data.painOn.four ? "Yes" : "-"}`, `${data.painOn.five ? "Yes" : "-"}`,
+            `${data.painOn.six ? "Yes" : "-"}`, `${data.painOn.seven ? "Yes" : "-"}`, `${data.painOn.eight ? "Yes" : "-"}`, `${data.painOn.nine ? "Yes" : "-" }`, `${data.painOn.ten ? "Yes" : "-"}`, `${data.painOn.eleven ? "Yes" : "-"}`]]
+
+        })
+
+        doc.addPage();
+        
+        jsTable(doc, {
+            head : [['Position', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight']],
+            body : [
+                ['Upper Left', `${data.upper_left.one ? "Yes" : "-"}`, `${data.upper_left.two ? "Yes" : "-"}`, `${data.upper_left.three ? "Yes" : "-"}`,
+                `${data.upper_left.four ? "Yes" : "-"}`, `${data.upper_left.five ? "Yes" : "-"}`, `${data.upper_left.six ? "Yes" : "-"}`, `${data.upper_left.seven ? "Yes" : "-"}`,
+                `${data.upper_left.eight ? "Yes" : "-"}` ],
+
+
+                ['Upper Right', `${data.upper_right.one ? "Yes" : "-"}`, `${data.upper_right.two ? "Yes" : "-"}`, `${data.upper_right.three ? "Yes" : "-"}`,
+                `${data.upper_right.four ? "Yes" : "-"}`, `${data.upper_right.five ? "Yes" : "-"}`, `${data.upper_right.six ? "Yes" : "-"}`, `${data.upper_right.seven ? "Yes" : "-"}`,
+                `${data.upper_right.eight ? "Yes" : "-"}` ],
+
+                ['Lower Left', `${data.lower_left.one ? "Yes" : "-"}`, `${data.lower_left.two ? "Yes" : "-"}`, `${data.lower_left.three ? "Yes" : "-"}`,
+                `${data.lower_left.four ? "Yes" : "-"}`, `${data.lower_left.five ? "Yes" : "-"}`, `${data.lower_left.six ? "Yes" : "-"}`, `${data.lower_left.seven ? "Yes" : "-"}`,
+                `${data.lower_left.eight ? "Yes" : "-"}` ],
+
+                ['Lower Right', `${data.lower_right.one ? "Yes" : "-"}`, `${data.lower_right.two ? "Yes" : "-"}`, `${data.lower_right.three ? "Yes" : "-"}`,
+                `${data.lower_right.four ? "Yes" : "-"}`, `${data.lower_right.five ? "Yes" : "-"}`, `${data.lower_right.six ? "Yes" : "-"}`, `${data.lower_right.seven ? "Yes" : "-"}`,
+                `${data.lower_right.eight ? "Yes" : "-"}` ]
+            ]
+        })
+
+    
+        
+
+        jsTable(doc, {
+            head : [['Name', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'U', 'L', 'L', 'R']],
+            body : [['BDR', `${data.BDR.one ? "Yes" : "-"}`,`${data.BDR.two ? "Yes" : "-"}`, `${data.BDR.three ? "Yes" : "-"}`, `${data.BDR.four ? "Yes" : "-"}`,
+            `${data.BDR.five ? "Yes" : "-"}`, `${data.BDR.six ? "Yes" : "-"}`, `${data.BDR.seven ? "Yes" : "-"}`, `${data.BDR.eight ? "Yes" : "-"}`, `${data.BDR.nine ? "Yes" : "-"}`,
+            `${data.BDR.u ? "Yes" : "-"}`, `${data.BDR.first_L ? "Yes" : "-"}`,`${data.BDR.second_L ? "Yes" : "-"}`,`${data.BDR.r ? "Yes" : "-"}`],
+            
+            ['BDC', `${data.BDC.one ? "Yes" : "-"}`,`${data.BDC.two ? "Yes" : "-"}`, `${data.BDC.three ? "Yes" : "-"}`, `${data.BDC.four ? "Yes" : "-"}`,
+            `${data.BDC.five ? "Yes" : "-"}`, `${data.BDC.six ? "Yes" : "-"}`, `${data.BDC.seven ? "Yes" : "-"}`, `${data.BDC.eight ? "Yes" : "-"}`, `${data.BDC.nine ? "Yes" : "-"}`,
+            `${data.BDC.u ? "Yes" : "-"}`, `${data.BDC.first_L ? "Yes" : "-"}`,`${data.BDC.second_L ? "Yes" : "-"}`,`${data.BDC.r ? "Yes" : "-"}`],
+            
+        ]
+        })
+
+        doc.setFont('helvetica', 'italic');
+        doc.text("Attrition : ", 55, 255);
+       
+        doc.text(`${data.AfterBDR.attrition ? "Yes" : "No"}`, 118, 255);
+        
+        doc.text("Abration : ", 220, 255);
+        
+        doc.text(`${data.AfterBDR.abration ? "Yes" : "No"}`,285, 255);
+        
+        doc.text("Irrotion : ", 390, 255);
+        
+        doc.text(`${data.AfterBDR.irrotion ? "Yes" : "No"}`,450, 255);
+        
+        doc.setFont('helvetica','bold');
+        doc.text('Payment & Visit', 235, 300);
+        doc.setFont('helvetica','italic');
+        doc.text("Total : ",170, 325);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`${data.total}`, 215, 325);
+        doc.text(" tk", 250, 325);
+         
+        doc.setFont('helvetica','italic');
+        doc.text("Due : ", 170, 343);
+        doc.setFont('helvetica', 'italic');
+        doc.text(`${values.due}`, 205, 343)
+        doc.text("tk", 240, 343)
+        
+        doc.setFont('helvetica','italic');
+        doc.text("Date of Appointment : ", 170, 361);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`${data.dateOfAppointment}`, 315, 361);
+
+        doc.setFont('helvetica','italic');
+        doc.text("Next Visit : ", 170, 379);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`${values.nextVisit}`, 250, 379);
+
+        doc.setFont('helvetica','bold');
+        doc.setDrawColor(0, 0, 0);
+        doc.line(430,470,520,470);
+
+        doc.text("Signature", 445, 495)
+        
+        var dt = new Date();
+        
+        doc.setFont('helvetica','normal');
+        doc.setFontSize(10);
+        doc.text("Generated : ", 120, 530);
+        doc.text(`${dt}`, 180, 530);
+        doc.save('patient.pdf');
+    }
 
     return (
     <div>
@@ -526,8 +694,12 @@ export default function PatientInfoNav() {
                 </div>
             </form>
             <button onClick={handleCostUpdate}>Save</button>
-            
             </div> : null}
+        {updatePdfBtn ? <div>
+            <div className='centerBtn'><button onClick={handleNewPatient}>New Patient</button></div>
+            <div className='centerBtn'><button onClick={generateUpdatedPdf}>Get Updated Pdf</button></div>
+            </div>
+         : null}
     </div>
   )
 }
