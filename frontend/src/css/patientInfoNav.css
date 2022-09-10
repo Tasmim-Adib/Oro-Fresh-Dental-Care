@@ -66,6 +66,36 @@
     justify-content: space-around;
     align-items: center;
 }
+.design_blood_data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.custom_file_input{
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+
+}
+.pres_image{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+textarea{
+    width: 100%;
+}
 
 @media screen and (max-width : 768px)  {
     .patientInfoNav{
@@ -77,3 +107,22 @@
         width: 100%;
     }
 }
+@media screen and (max-width : 425px){
+    .design_input_Data{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .design_input_Data h3{
+        margin: 0;
+    }
+    .design_blood_data{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .design_cost_Data{
+        flex-direction: column;
+    }
+}  

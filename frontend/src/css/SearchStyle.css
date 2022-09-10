@@ -80,6 +80,11 @@ img{
     width: 50%;
     height: 600px;
 }
+@media screen and (max-width : 768px){
+    .boxed{
+        width: 100%;
+    }
+}
 @media screen and (max-width : 425px) {
     .table_content{
         text-align: center;
@@ -95,6 +100,11 @@ img{
     }
     .imgStyle img{
         width: 80%;
+    }
+
+    .design_input_Data{
+        display: flex;
+        flex-direction: column;
     }
     
 }

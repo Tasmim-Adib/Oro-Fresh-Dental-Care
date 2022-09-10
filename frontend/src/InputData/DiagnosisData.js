@@ -70,21 +70,52 @@ export default function DiagnosisData({problemStatement,symptom,diagnosis,advice
                             <th>Conservetives</th>
                             <th>Endodontics</th>
                             <th>Prosthodontics</th>
+                            {/* <th>Orthodontics</th>
+                            <th>Surgery</th>
+                            <th>Periodontics</th>
+                            <th>Prevention</th>
+                            <th>Medication</th>
+                            <th>Asthetics</th> */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{treatment.resoration ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.conservetives ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.resoration ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.resoration ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                        </tr>
+                    </tbody>
+
+                    <thead>
+                        <tr>
                             <th>Orthodontics</th>
                             <th>Surgery</th>
                             <th>Periodontics</th>
                             <th>Prevention</th>
+                            {/*<th>Medication</th>
+                            <th>Asthetics</th> */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{treatment.orthodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.surgery ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.periodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.prevention ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                        </tr>
+                    </tbody>
+
+                    <thead>
+                        <tr>
                             <th>Medication</th>
                             <th>Asthetics</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            {treatment && Object.keys(treatment).map((hist ,index) =>{                               
-                                return(
-                                    <td key={index}> {treatment[hist] ?<img src =  "images/tick.jpg" alt = "Yes"/>  : "--"}</td>
-                                )
-                            })}
+                            <td>{treatment.medication ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
+                            <td>{treatment.asthetics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"}</td>
                         </tr>
                     </tbody>
 

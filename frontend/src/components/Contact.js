@@ -35,7 +35,7 @@ export default function Contact() {
             <div className="appointment">
     
                 <div><label>Name</label><br/> <input className='patientName' type = 'text' name = "patientName" value = {name} onChange ={(e) => setName(e.target.value)}/></div>
-                <div><label>Date Of Appointment</label><br/> <input type = 'date' name = "date" value = {date} onChange ={(e) => setDate(e.target.value)}/></div>               
+                <div><label>Date Of Appointment</label><br/> <input type = 'date' name = "patientDate" value = {date} onChange ={(e) => setDate(e.target.value)}/></div>               
                 <div><label>Contact No</label><br/><input className='patientName' type = 'text' name = "patientContact" value = {contact} onChange ={(e) => setContact(e.target.value)}/></div>
 
             </div>

@@ -16,7 +16,20 @@ import SearchData from './SearchData'
 import jsPDF from 'jspdf';
 import jsTable from 'jspdf-autotable';
 
+const initialValues = {
+	due : null,
+    nextVisit : null
+};
+
 export default function PatientInfoNav() {
+    const [values, setValues] = useState(initialValues);
+	const handleInputChange = (e) =>{
+		const {name, value} = e.target;
+		setValues({
+			...values,
+			[name] :value,
+		});
+	};
 
     const [value, setValue] = useState("")
     const [isDataShow, setDataShow] = useState(false)
@@ -33,21 +46,41 @@ export default function PatientInfoNav() {
     const [costData, setCostData] = useState({})
     const [medicineData, SetMedicineData] = useState({})
     const [previewData, setPreviewData] = useState({})
-
-
+    const [isErr, setErr] = useState(false)
+    const [isLoading, setLoading] = useState(false)
+    const [costUpdateBtn, setCostUpdateBtn] = useState(false)
 
     const handleSearch = async (e) =>{
         e.preventDefault();
+        setLoading(true)
         return await axios
         .get(`http://localhost:5000/patients?contact=${value}`)
         .then((response) => {
-            setData(response.data);
-            setValue("");
-            setDataShow(true)
-            setInfoShow(false)
-            setSubmit(false)            
+            if(response.data.length === 0){
+                setErr(true)
+                setDataShow(false)
+                setInfoShow(false)
+                setSubmit(false) 
+                setLoading(false)
+            }
+            else{
+                setData(response.data);
+                setValue("");
+                setDataShow(true)
+                setInfoShow(false)
+                setSubmit(false)
+                setLoading(false)
+                setErr(false)   
+            }
+            
+                      
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+            setErr(true)
+            setLoading(false)
+        });
+
+        
          
     }   
 
@@ -246,6 +279,34 @@ export default function PatientInfoNav() {
         
     }
 
+    const handleNewPatient = (e) =>{
+        setInfoShow(true)
+        setErr(false)
+    }
+
+    const handleUpdate = (e) =>{
+        setDataShow(false)
+        setCostUpdateBtn(true)
+    }
+
+    const handleCostUpdate = async (e) =>{
+        e.preventDefault();
+        const updateData = {
+            due : values.due,
+            nextVisit : values.nextVisit
+        };
+        axios({
+            url : `http://localhost:5000/update/${data._id}`,
+            method : 'PATCH',
+            data : updateData
+        }).then((res) =>{
+            alert(res.data.msg)
+        }).catch((err) =>{
+            alert(err.message)
+        });
+
+    }
+
 
     const   generatePdf =()=>{        
         var doc = new jsPDF('p', 'pt');
@@ -414,6 +475,7 @@ export default function PatientInfoNav() {
 
     return (
     <div>
+        
         <div className = "patientInfoNav">
             <div className="patient_nav_header">
                 <h3>Information</h3>
@@ -432,8 +494,11 @@ export default function PatientInfoNav() {
                 </div>
                 
             </form>
+
+            
             
         </div>
+        {isLoading ? <div>Loading.....</div>:null}
         {infoShow ? <PatientInfo onSubmit = {getInfoData}/> : null}
         {diagnosisShow ? <DemoDiagnosis onSubmit = {getDiagnosisData}/> : null}
         {medicineShow ? <PatientMedicine onSubmit = {getMedicineData}/> : null}
@@ -446,7 +511,23 @@ export default function PatientInfoNav() {
         {allData ? <div className = "centerBtn"><button onClick = {handleSave}>Save Data</button></div>: null}
         {isSubmit ? <div className = "centerBtn"><button onClick = {generatePdf}>Generate PDF</button></div>: null}
         {isDataShow ? <SearchData {...data}/> : null}
-
+        {isErr ? <div>
+                <h1>Data not Found</h1>
+                <div className='centerBtn'><button onClick={handleNewPatient}>New Patient</button></div>
+             </div>:null}
+        
+        {isDataShow ? <div className = "centerBtn"><button onClick = {handleUpdate}>Update</button></div>: null}
+        {costUpdateBtn ? <div className='centerBtn'>
+            <form>
+                <div className = "name_age">
+                    
+                    <div><label>Due</label><br/><input type = 'number' name = "due" value = {values.due} onChange={handleInputChange}/></div>
+                    <div><label>Next Visit</label><br/><input type = 'date' name = "nextVisit" value = {values.nextVisit} onChange={handleInputChange}/></div>
+                </div>
+            </form>
+            <button onClick={handleCostUpdate}>Save</button>
+            
+            </div> : null}
     </div>
   )
 }

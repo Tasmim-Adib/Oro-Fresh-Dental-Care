@@ -24,7 +24,7 @@ export default function PatientPreview(props) {
         <fieldset>
             <legend>Preview</legend>
             <form onSubmit={handleSubmit}>
-              <label>Preview : </label><textarea type = "text" name = "preview" value = {values.preview} onChange={handleInputChange}/><br/>
+              <textarea type = "text" name = "preview" value = {values.preview} onChange={handleInputChange}/><br/>
               <div className = "centerBtn"><button type='submit'>Next</button></div>
             </form>
         </fieldset>

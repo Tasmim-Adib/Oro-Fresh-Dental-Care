@@ -7,25 +7,28 @@ export default function SearchData(props) {
             <fieldset>
                 <legend>Patient's Information</legend>
                 <div className='design_input_Data'>
-                <h3>Name : {props.name}</h3>
-                <h3>Age : {props.age}</h3>
-                <h3>Contact No : {props.contact}</h3>
+                    <h3>Name : {props.name}</h3>
+                    <h3>Age : {props.age}</h3>
+                    <h3>Contact No : {props.contact}</h3>
                 </div>
                 <div className='design_input_Data'>
-                <h3>Height : {props.height}</h3>
-                <h3>Weight : {props.weight}</h3>
-                <h3>Glucose : {props.glucose}</h3>
-                </div>
-                
-                <div className='design_input_Data'>
-                <h3>Blood Pressure  Systol : {props.systol}</h3>
-                <h3>Diastol : {props.diastol}</h3>
+                    <h3>Height : {props.height}</h3>
+                    <h3>Weight : {props.weight}</h3>
+                    <h3>Glucose : {props.glucose}</h3>
                 </div>
                 
                 <div className='design_input_Data'>
-                <h3>Pulse : {props.pulse}</h3>
-                <h3>Temperature : {props.temperature}</h3>
-                <h3>Oxygen Saturation : {props.oxygen}</h3>
+                    <div className='design_blood_data'>
+                        <h3>Blood Pressure  Systol : {props.systol}</h3>
+                        <h3>Diastol : {props.diastol}</h3>
+                    </div>
+                    
+                </div>
+                
+                <div className='design_input_Data'>
+                    <h3>Pulse : {props.pulse}</h3>
+                    <h3>Temperature : {props.temperature}</h3>
+                    <h3>Oxygen Saturation : {props.oxygen}</h3>
                 </div>
                 
             </fieldset>
@@ -39,6 +42,7 @@ export default function SearchData(props) {
                 <h3>Diagnosis : {props.diagnosis}</h3>
                 <h3>Advice : {props.advice}</h3>
                 <h3>Comment : {props.comment}</h3>
+
                 <div className = "container">
                     <h2>Medical History</h2>
                     <hr className="dotted-hr"/>
@@ -99,24 +103,45 @@ export default function SearchData(props) {
                                 <th>Conservetives</th>
                                 <th>Endodontics</th>
                                 <th>Prosthodontics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{props.treatment.resoration ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.conservetives ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.endodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.prosthodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                
                                 <th>Orthodontics</th>
                                 <th>Surgery</th>
                                 <th>Periodontics</th>
                                 <th>Prevention</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{props.treatment.orthodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.surgery ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.periodontics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.prevention ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
                                 <th>Medication</th>
                                 <th>Asthetics</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                {props.treatment && Object.keys(props.treatment).map((hist ,index) =>{                               
-                                    return(
-                                        <td key={index}> {props.treatment[hist] ?<img src =  "images/tick.jpg" alt = "Yes"/>  : "--"}</td>
-                                    )
-                                })}
+                                <td>{props.treatment.medication ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                <td>{props.treatment.asthetics ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
 
@@ -248,7 +273,7 @@ export default function SearchData(props) {
                                 <td>BDR</td>
                                 { props.BDR && Object.keys( props.BDR).map((hist ,index) =>{                               
                                     return(
-                                        <td key={index}> { props.BDR[hist] ? <img src =  "images/tick.jpg"  alt = "Yes"/> : "--"} </td>
+                                        <td key={index}> { props.BDR[hist] ? "Y" : "--"} </td>
                                     )
                                 })}
                             </tr>
@@ -256,7 +281,7 @@ export default function SearchData(props) {
                                 <td>BDC</td>
                                 { props.BDC && Object.keys( props.BDC).map((hist ,index) =>{                               
                                     return(
-                                        <td key={index}>{ props.BDC[hist] ? <img src =  "images/tick.jpg" alt = "Yes"/> : "--"} </td>
+                                        <td key={index}>{ props.BDC[hist] ? "Y" : "--"} </td>
                                     )
                                 })}
                             </tr>
@@ -297,8 +322,8 @@ export default function SearchData(props) {
                 </div>
                 <div className='design_cost_Data'>
                     <h3>Next Visit : {props.nextVisit}</h3>
-                    <h3>dateOfAppointment : {props.dateOfAppointment}</h3>
-                </div>
+                    <h3>Date of Appointment : {props.dateOfAppointment}</h3>
+                </div> 
             </fieldset>
         </div>
 
@@ -312,6 +337,7 @@ export default function SearchData(props) {
         <div className = "imgStyle">
             <img src={props.pic} alt = "Prescription Not Found"/>
         </div>
+
     </div>
   )
 }

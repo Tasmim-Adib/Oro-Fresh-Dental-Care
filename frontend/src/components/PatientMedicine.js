@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// css property in patientInfo.style.css 
 
 export default class PatientMedicine extends Component {
     constructor(props){
@@ -40,9 +41,9 @@ export default class PatientMedicine extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className='pres_image' onSubmit={this.handleSubmit}>
 
-          <input type  = "file" name = "file" placeholder = "Choose the Prescription" onChange = {this.handleFileChange} />
+          <input className='custom_file_input' type  = "file" name = "file" onChange = {this.handleFileChange} />
               { this.state.loading ? <h3>Loading ....</h3> : <img src={this.state.pic} alt = "prescription"/>}
           
           <div className = "centerBtn"><button type='submit'>Next</button></div>

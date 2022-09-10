@@ -12,8 +12,9 @@
     text-align: center;
     color: red;
 }
-input[name = "patientName"],[name ="patientContact"]{
+input[name = "patientName"],[name ="patientContact"],[name = "patientDate"]{
     width: 250px;
+    padding: 10px;
 }
 
 .appoint_btn{
@@ -27,7 +28,7 @@ input[name = "patientName"],[name ="patientContact"]{
         display: flex;
         flex-direction: column;
     }
-    input[name = "patientName"],[name = "patientContact"]{
+    input[name = "patientName"],[name = "patientContact"],[name = "patientDate"]{
         width: 180px;
     }
 }
